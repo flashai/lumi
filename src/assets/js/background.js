@@ -2,7 +2,7 @@ chrome.runtime.onInstalled.addListener(function() {
     alert('open')
   });
 
-const GLEAM_URL = 'http://894b28f5.ngrok.io/normalize';
+const GLEAM_URL = 'http://482e7fb4.ngrok.io/normalize';
 const send = async url => { 
     const requestUrl = new URL(GLEAM_URL);
     const response = await fetch(requestUrl, {
@@ -37,10 +37,8 @@ const send = async url => {
 chrome.tabs.onUpdated.addListener(function(tabId,changeInfo,tab){
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         var url = tabs[0].url;
-        if(url.includes("watch")){
+        if(url.includes("watch"))
             chrome.browserAction.enable();
-            chrome.browserAction.setIcon({path:"../images/active.png"});
-        }
         else
             chrome.browserAction.disable();
     });
@@ -48,10 +46,8 @@ chrome.tabs.onUpdated.addListener(function(tabId,changeInfo,tab){
         chrome.webNavigation.onHistoryStateUpdated.addListener(function(details){
             chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
                 var url = tabs[0].url;
-                if(url.includes("watch")){
+                if(url.includes("watch"))
                     chrome.browserAction.enable();
-                    chrome.browserAction.setIcon({path:"../images/active.png"});
-                }
                 else
                     chrome.browserAction.disable();
             });
@@ -63,13 +59,10 @@ chrome.tabs.onUpdated.addListener(function(tabId,changeInfo,tab){
 chrome.tabs.onActivated.addListener(function(activeInfo) {
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         var url = tabs[0].url;
-        if(url.includes("watch")){
+        if(url.includes("watch"))
             chrome.browserAction.enable();
-            chrome.browserAction.setIcon({path:"../images/active.png"});
-        }
-        else{
+        else
             chrome.browserAction.disable();
-        }
     });
 });
 
