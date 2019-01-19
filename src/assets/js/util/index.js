@@ -1,8 +1,8 @@
 const getUrl = () => {
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         var url = tabs[0].url;
-        console.log(url);
-    });
+        alert(url);
+    });    
 }
 
-module.exports = {getUrl};
+export{getUrl}
