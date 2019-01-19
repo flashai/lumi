@@ -4,7 +4,7 @@
     "description": "Chrome extension for flashai",
     "manifest_version": 2,
     "browser_action":{
-       
+       "default_icon":"./src/assets/images/active.png"
     },
     "content_scripts":[
         {
