@@ -3,4 +3,5 @@ const url = params.get('q');
 const video = document.createElement('video');
 video.src = url;
 video.setAttribute("controls", "controls");
+video.autoplay = true;
 document.getElementById("video").appendChild(video);
