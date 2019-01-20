@@ -1,8 +1,5 @@
-chrome.runtime.onInstalled.addListener(function() {
-    alert('open')
-  });
 
-const GLEAM_URL = 'http://482e7fb4.ngrok.io/normalize';
+const GLEAM_URL = 'http://f92a453b.ngrok.io/normalize';
 const send = async url => { 
     const requestUrl = new URL(GLEAM_URL);
     const response = await fetch(requestUrl, {
@@ -67,7 +64,10 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 });
 
 chrome.browserAction.onClicked.addListener(async function(tab){
-    alert(tab.url)
+    
+    chrome.tabs.executeScript({
+        code: "document.getElementsByTagName('video')[0].pause()"
+    });
     try {
         let data = {url:tab.url}
         fetch(GLEAM_URL,{
@@ -78,12 +78,22 @@ chrome.browserAction.onClicked.addListener(async function(tab){
             return r.json();
         }).then(data => {
             console.log(data);
-            let {url} = data;
-            chrome.tabs.create({url});  
+            // chrome.tabs.create({url}); 
+            chrome.tabs.create({url: `/src/views/index.html`});
+            chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
+                console.log(message);
+                console.log(data, "THERES");
+                if(message.action == 'getUrl'){
+                    console.log("THERE ");
+                    sendResponse(data);
+                }   
+            });
         })
         } catch(e) {
-        console.error(e);
+            console.error(e);
         }
+    
+   
     // try {
     //     const response = await send(tab.url);
     //     console.log(response);
