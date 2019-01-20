@@ -47,12 +47,9 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 });
 
 chrome.browserAction.onClicked.addListener(async function(tab){
-<<<<<<< HEAD
-=======
     
     chrome.browserAction.setPopup({popup: '/src/views/popup.html'});
 
->>>>>>> master
     chrome.tabs.executeScript({
         code: "document.getElementsByTagName('video')[0].pause()"
     });
