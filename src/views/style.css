@@ -10,10 +10,10 @@ h1{
         top: 0;
         left: 0;
         width:400px;
-    height:50px;
-    border-radius:0px;
-    background:#000;
-    -webkit-transform: rotate(140deg);
+        height:50px;
+        border-radius:0px;
+        background:#000;
+        -webkit-transform: rotate(140deg);
         z-index: -1;
 }
 
@@ -75,6 +75,7 @@ h1{
         justify-content: center;
         position: relative;
         bottom: 90px;
+       
     }
     
     #video-container video{
