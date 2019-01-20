@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
 const GLEAM_URL = 'http://7c54ad94.ngrok.io/normalize';
-=======
-const GLEAM_URL = 'http://554e63c9.ngrok.io/normalize';
->>>>>>> master
 const send = async url => { 
     const requestUrl = new URL(GLEAM_URL);
     const response = await fetch(requestUrl, {
