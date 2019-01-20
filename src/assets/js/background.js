@@ -1,5 +1,5 @@
 
-const GLEAM_URL = 'http://f92a453b.ngrok.io/normalize';
+const GLEAM_URL = 'http://7c54ad94.ngrok.io/normalize';
 const send = async url => { 
     const requestUrl = new URL(GLEAM_URL);
     const response = await fetch(requestUrl, {
@@ -64,7 +64,6 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 });
 
 chrome.browserAction.onClicked.addListener(async function(tab){
-    
     chrome.tabs.executeScript({
         code: "document.getElementsByTagName('video')[0].pause()"
     });
