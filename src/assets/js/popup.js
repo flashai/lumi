@@ -32,9 +32,9 @@ chrome.tabs.query({active: true}, function(tab){
                 chrome.browserAction.setPopup({popup: ''});
             });
         })
-        } catch(e) {
-            console.error(e);
-        }
+    } catch(e) {
+        console.error(e);
+    }
     
 })
 
