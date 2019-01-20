@@ -14,16 +14,15 @@ const send = async url => {
 
 chrome.tabs.onUpdated.addListener(function(tabId,changeInfo,tab){
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-        if(tabs[0].url && url.includes("watch?v="))
+        if(tabs[0].url.includes("watch?v="))
             chrome.browserAction.enable();
-            // chrome.browserAction.setIcon('');
         else
             chrome.browserAction.disable();
     });
     try{
         chrome.webNavigation.onHistoryStateUpdated.addListener(function(details){
             chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-                if(tabs[0].url && url.includes("watch?v="))
+                if(tabs[0].url.includes("watch?v="))
                     chrome.browserAction.enable();
                 else
                     chrome.browserAction.disable();
@@ -35,7 +34,7 @@ chrome.tabs.onUpdated.addListener(function(tabId,changeInfo,tab){
 })
 chrome.tabs.onActivated.addListener(function(activeInfo) {
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-        if(tabs[0].url && url.includes("watch?v="))
+        if(tabs[0].url.includes("watch?v="))
             chrome.browserAction.enable();
         else
             chrome.browserAction.disable();
