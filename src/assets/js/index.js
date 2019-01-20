@@ -15,4 +15,9 @@ else
 
 chrome.runtime.sendMessage({url: textA}, function(response) {
     console.log("Response: ", response);
+    
+});
+
+chrome.runtime.sendMessage({method: 'print'}, function(response){
+
 });

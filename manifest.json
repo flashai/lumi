@@ -11,7 +11,7 @@
             "matches":[
                 "<all_urls>"
             ],
-            "js":["./src/assets/js/index.js"],
+            "js":["./src/assets/js/index.js" ],
             "run_at": "document_end"
         }
     ],
